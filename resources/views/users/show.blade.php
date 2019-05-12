@@ -30,9 +30,9 @@
 
     <div class="row"> 
         <div class="col-12">
-        <h2 class="text-center">MY POSTS</h2>
+        <h2 class="text-center">POSTS</h2>
             <div>
-                <!--{{ $user->posts }}-->
+                @include('posts.posts', ['posts' => $posts])
             </div>
         </div>
     </div>   
