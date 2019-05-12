@@ -28,6 +28,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('unfollow', 'UserFollowController@destroy')->name('user.unfollow');
         Route::get('followings', 'UsersController@followings')->name('users.followings');
         Route::get('followers', 'UsersController@followers')->name('users.followers');
+        Route::get('favorites', 'UsersController@favorites')->name('users.favorites');
+    });
+    
+    Route::group(['prefix' => 'posts/{id}'], function () {
+        Route::post('favorite', 'PostsFavoritesController@store')->name('posts_favorites.favorite');
+        Route::delete('unfavorite', 'PostsFavoritesController@destroy')->name('posts_favorites.unfavorite');
     });
     
     Route::resource('posts', 'PostsController', ['only' => ['store', 'destroy', 'create']]);

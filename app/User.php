@@ -72,4 +72,38 @@ class User extends Authenticatable
     {
         return $this->followings()->where('follow_id', $userId)->exists();
     }
+    
+    public function posts_favorites()
+    {
+        return $this->belongsToMany(Post::class, 'posts_favorites', 'user_id', 'post_id')->withTimestamps();
+    }
+    
+    public function favorite($postId)
+    {
+        $exist = $this->now_favorite($postId);
+        
+        if ($exist) {
+            return false;
+        } else {
+            $this->posts_favorites()->attach($postId);
+            return true;
+        }
+    }
+    
+    public function unfavorite($postId)
+    {
+        $exist = $this->now_favorite($postId);
+        
+        if ($exist) {
+            $this->posts_favorites()->detach($postId);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public function now_favorite($postId)
+    {
+        return $this->posts_favorites()->where('post_id', $postId)->exists();
+    }
 }

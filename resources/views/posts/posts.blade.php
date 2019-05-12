@@ -27,10 +27,19 @@
                     </table>
                 </div>
 
-                <div>
+                <div class="btn-group" role="group" aria-label="timeLineButton">
                     @if (Auth::id() == $post->user_id)
                         {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
                             {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                        {!! Form::close() !!}
+                    @endif
+                    @if (Auth::user()->now_favorite($post->id))
+                        {!! Form::open(['route' => ['posts_favorites.unfavorite', $post->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('応援をやめる', ['class' => "btn btn-info btn-sm"]) !!}
+                        {!! Form::close() !!}
+                    @else
+                        {!! Form::open(['route' => ['posts_favorites.favorite', $post->id]]) !!}
+                            {!! Form::submit('応援する', ['class' => "btn btn-primary btn-sm"]) !!}
                         {!! Form::close() !!}
                     @endif
                 </div>

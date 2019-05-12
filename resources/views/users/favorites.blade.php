@@ -6,7 +6,9 @@
             @include('users.card', ['user' => $user])
         </aside>
         <div>
-            @include('users.users', ['users' => $users])
+            @if (count($favorites) > 0)
+                @include('posts.posts', ['posts' => $favorites])
+            @endif
         </div>
     </div>
 @endsection
