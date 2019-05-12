@@ -10,18 +10,11 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $data = [];
-        if (\Auth::check()) {
-            $user = \Auth::user();
-            $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(10);
-            
-            $data = [
-                'user' => $user,
-                'posts' => $posts,
-            ];
-        }
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
         
-        return view('welcome', $data);
+        return view('welcome', [
+            'posts' => $posts,
+        ]);
     }
         
     public function store(Request $request)

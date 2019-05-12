@@ -3,17 +3,7 @@
 @section('content')
     @if (Auth::check())
         <div class="row">
-            <aside class="col-sm-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">{{ Auth::user()->name }}</h3>
-                    </div>
-                    <div class="card-body">
-                        <!--<img class="rounded img-fluid" src= alt="">ここにアップロード画像が入る-->
-                    </div>
-                </div>
-            </aside>
-            <div class="col-sm-8">
+            <div>
                 @if (count($posts) > 0)
                     @include('posts.posts', ['posts' => $posts])
                 @endif
