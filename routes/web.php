@@ -36,5 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('unfavorite', 'PostsFavoritesController@destroy')->name('posts_favorites.unfavorite');
     });
     
-    Route::resource('posts', 'PostsController', ['only' => ['store', 'destroy', 'create']]);
+    Route::resource('posts', 'PostsController', ['only' => ['store', 'destroy', 'create', 'show']]);
+    
+    Route::resource('posts.advices', 'AdvicesController', ['only' => ['store', 'destroy', 'create']]);
 });

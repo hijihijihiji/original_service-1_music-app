@@ -106,4 +106,9 @@ class User extends Authenticatable
     {
         return $this->posts_favorites()->where('post_id', $postId)->exists();
     }
+    
+    public function advices()
+    {
+        return $this->hasMany(Advice::class);
+    }
 }

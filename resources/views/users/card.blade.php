@@ -3,7 +3,7 @@
         <h3 class="card-title">{{ $user->name }}</h3>
     </div>
     <div class="card-body">
-        <!--<img class="rounded img-fluid" src= alt="">ここにアップロード画像が入る-->
+        アップロードした画像
     </div>
         @include('users.navtabs', ['user' => $user])
 </div>

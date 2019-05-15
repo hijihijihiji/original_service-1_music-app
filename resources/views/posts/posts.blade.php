@@ -42,6 +42,7 @@
                             {!! Form::submit('応援する', ['class' => "btn btn-primary btn-sm"]) !!}
                         {!! Form::close() !!}
                     @endif
+                        {!! link_to_route('posts.show', '助ける!', [$post->id], ['class' => 'btn btn-success btn-sm']) !!}
                 </div>
             </div>
         </li>

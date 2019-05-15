@@ -35,7 +35,9 @@ class PostsController extends Controller
             'content' => $request->content,
         ]);
         
-        return $this->index();
+        $user = $request->user();
+        
+        return redirect()->route('users.show', [$user->id]);
     }
     
     public function destroy($id)
@@ -55,6 +57,18 @@ class PostsController extends Controller
         
         return view('posts.create', [
             'post' => $post,
+        ]);
+    }
+    
+    public function show($id)
+    {
+        $post = Post::find($id);
+        
+        $advices = $post->advices;
+        
+        return view('posts.show', [
+            'post' => $post,
+            'advices' => $advices,
         ]);
     }
 }
