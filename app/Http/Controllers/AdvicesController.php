@@ -39,8 +39,6 @@ class AdvicesController extends Controller
     {
         $advice = new Advice;
         $advice->post_id = $id;
-        //dd($advice);
-        
         
         return view('advices.create', [
             'advice' => $advice,

@@ -2,7 +2,6 @@
     <ul class="list-unstyled">
         @foreach ($users as $user)
             <li class="media">
-                <!--<img class="mr-2 rounded" src= alt=""> ここにアップロード画像が入る-->
                 <div class="media-body">
                     <div>
                         {{ $user->name }}

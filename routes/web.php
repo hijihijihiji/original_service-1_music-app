@@ -39,4 +39,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('posts', 'PostsController', ['only' => ['store', 'destroy', 'create', 'show']]);
     
     Route::resource('posts.advices', 'AdvicesController', ['only' => ['store', 'destroy', 'create']]);
+    
+    Route::resource('users.images', 'ImagesController', ['only' => ['store','index']]);
 });

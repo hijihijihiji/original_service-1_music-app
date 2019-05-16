@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Post;
+use App\Image;
+use Storage;
 
 class UsersController extends Controller
 {
@@ -23,10 +25,23 @@ class UsersController extends Controller
         $user = User::find($id);
         $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(10);
         
-        $data = [
+        if (isset($user->images->image)) {
+            $imageUrl = $user->images->image;
+            $path = Storage::disk('s3')->url($imageUrl);
+            
+            $data = [
             'user' => $user,
             'posts' => $posts,
-        ];
+            'path' => $path,
+            ];
+        }else{
+            $path = "";
+            $data = [
+                'user' => $user,
+                'posts' => $posts,
+                'path' => $path,
+            ];
+        }
         
         $data += $this->counts($user);
 

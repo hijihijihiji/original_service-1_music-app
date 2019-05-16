@@ -3,7 +3,15 @@
         <h3 class="card-title">{{ $user->name }}</h3>
     </div>
     <div class="card-body">
-        アップロードした画像
+        @if(isset($user->images->image))
+        <img src="{{ $path }}">
+        @else
+        <form action="{{ route('users.images.store', ['id' => $user->id]) }}" method="post" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <input type="file" name="image">
+            <button type="submit">保存</button>
+        </form>
+        @endif
     </div>
         @include('users.navtabs', ['user' => $user])
 </div>
