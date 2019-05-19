@@ -71,6 +71,22 @@
                         </tr>
                     </table>
                 </div>
+                <div class="btn-group" role="group" aria-label="timeLineButton">
+                    @if (Auth::id() == $advice->user_id)
+                        {!! Form::open(['route' => ['posts.advices.destroy', $post->id, $advice->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                        {!! Form::close() !!}
+                    @endif
+                    @if (Auth::user()->now_favorite_advices($advice->id))
+                        {!! Form::open(['route' => ['advices_favorites.unfavorite', $advice->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('NICE!を取り消す', ['class' => "btn btn-info btn-sm"]) !!}
+                        {!! Form::close() !!}
+                    @else
+                        {!! Form::open(['route' => ['advices_favorites.favorite', $advice->id]]) !!}
+                            {!! Form::submit('NICE!', ['class' => "btn btn-primary btn-sm"]) !!}
+                        {!! Form::close() !!}
+                    @endif
+                </div>
             </div>
         </li>
     @endforeach

@@ -42,7 +42,6 @@ class UsersController extends Controller
                 'path' => $path,
             ];
         }
-        
         $data += $this->counts($user);
 
         return view('users.show', $data);
@@ -93,5 +92,19 @@ class UsersController extends Controller
         return view('users.favorites', $data);
     }
     
+    public function advices_favorites($id)
+    {
+        $user = User::find($id);
+        $advices_favorites = $user->advices_favorites()->paginate(10);
+        
+        $data = [
+            'user' => $user,
+            'advices_favorites' => $advices_favorites,
+        ];
+        
+        $data += $this->counts($user);
+        
+        return view('users.advices_favorites', $data);
+    }
 
 }

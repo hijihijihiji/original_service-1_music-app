@@ -17,4 +17,9 @@ class Advice extends Model
     {
         return $this->belongsTo(Post::class);
     }
+    
+    public function favorite_user()
+    {
+        return $this->belongsToMany(User::class, 'advices_favorites', 'advice_id', 'user_id')->withTimestamps();
+    }
 }

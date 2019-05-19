@@ -32,6 +32,11 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
     
+    public function advices()
+    {
+        return $this->hasMany(Advice::class);
+    }
+    
     public function images()
     {
         return $this->hasOne(Image::class);
@@ -112,8 +117,40 @@ class User extends Authenticatable
         return $this->posts_favorites()->where('post_id', $postId)->exists();
     }
     
-    public function advices()
+    //リレーション
+    public function advices_favorites()
     {
-        return $this->hasMany(Advice::class);
+        return $this->belongsToMany(Advice::class, 'advices_favorites', 'user_id', 'advice_id')->withTimestamps();
     }
+    
+    //いいね機能
+    public function advices_favorite($adviceId)
+    {
+        $exist = $this->now_favorite_advices($adviceId);
+        
+        if ($exist) {
+            return false;
+        } else {
+            $this->advices_favorites()->attach($adviceId);
+            return true;
+        }
+    }
+    
+    public function advices_unfavorite($adviceId)
+    {
+        $exist = $this->now_favorite_advices($adviceId);
+        
+        if ($exist) {
+            $this->advices_favorites()->detach($adviceId);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public function now_favorite_advices($adviceId)
+    {
+        return $this->advices_favorites()->where('advice_id', $adviceId)->exists();
+    }
+    
 }
