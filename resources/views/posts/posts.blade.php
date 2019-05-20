@@ -1,7 +1,6 @@
 <ul class="list-unstyled">
     @foreach ($posts as $post)
         <li class="media mb-3">
-            <!--<img class="mr-2 rounded" src= alt="">-->ここにアップロード画像が入る-->
             <div class="media-body">
                 <div>
                     {!! link_to_route('users.show', $post->user->name, ['id' => $post->user->id]) !!} <span class="text-muted">posted at {{ $post->created_at }}</span>
@@ -30,25 +29,25 @@
                 <div class="btn-group" role="group" aria-label="timeLineButton">
                     @if (Auth::id() == $post->user_id)
                         {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                            {!! Form::submit('削除', ['class' => 'border border-dark btn btn-light btn-sm']) !!}
                         {!! Form::close() !!}
                     @endif
                     @if (Auth::user()->now_favorite($post->id))
                         {!! Form::open(['route' => ['posts_favorites.unfavorite', $post->id], 'method' => 'delete']) !!}
-                            {!! Form::submit('応援をやめる', ['class' => "btn btn-info btn-sm"]) !!}
+                            {!! Form::submit('応援をやめる', ['class' => "border border-dark btn btn-light btn-sm"]) !!}
                         {!! Form::close() !!}
                     @else
                         {!! Form::open(['route' => ['posts_favorites.favorite', $post->id]]) !!}
-                            {!! Form::submit('応援する', ['class' => "btn btn-primary btn-sm"]) !!}
+                            {!! Form::submit('応援する', ['class' => "border border-dark btn btn-light btn-sm"]) !!}
                         {!! Form::close() !!}
                     @endif
-                        {!! link_to_route('posts.show', '助ける!', [$post->id], ['class' => 'btn btn-success btn-sm']) !!}
+                        {!! link_to_route('posts.show', '助ける!', [$post->id], ['class' => 'border border-dark btn btn-light btn-sm']) !!}
                 </div>
             </div>
         </li>
     @endforeach
 </ul>
 <div>
-    {!! link_to_route('posts.create', 'GIVE ME ADVICE!', [], ['class' => 'btn btn-lg btn-warning']) !!}
+    {!! link_to_route('posts.create', 'アドバイスをもらう!', [], ['class' => 'btn btn-lg border border-dark btn-light']) !!}
 </div>
 {{ $posts->render('pagination::bootstrap-4') }}

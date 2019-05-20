@@ -125,7 +125,6 @@ class UsersController extends Controller
                 'path' => $path,
             ];
         }
-        
         $data += $this->counts($user);
         
         return view('users.favorites', $data);

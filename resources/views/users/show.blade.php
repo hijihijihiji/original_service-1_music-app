@@ -17,7 +17,7 @@
 
     <div class="row"> 
         <div class="col-12">
-        <h2 class="text-center">POSTS</h2>
+        <h2 class="text-center badge-secondary">POSTS</h2>
             <div>
                 @include('posts.posts', ['posts' => $posts])
             </div>
