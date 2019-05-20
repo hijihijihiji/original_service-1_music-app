@@ -30,9 +30,9 @@ class UsersController extends Controller
             $path = Storage::disk('s3')->url($imageUrl);
             
             $data = [
-            'user' => $user,
-            'posts' => $posts,
-            'path' => $path,
+                'user' => $user,
+                'posts' => $posts,
+                'path' => $path,
             ];
         }else{
             $path = "";
@@ -52,10 +52,23 @@ class UsersController extends Controller
         $user = User::find($id);
         $followings = $user->followings()->paginate(10);
         
-        $data = [
-            'user' => $user,
-            'users'=> $followings,
-        ];
+        if (isset($user->images->image)) {
+            $imageUrl = $user->images->image;
+            $path = Storage::disk('s3')->url($imageUrl);
+            
+            $data = [
+                'user' => $user,
+                'users'=> $followings,
+                'path' => $path,
+            ];
+        }else{
+            $path = "";
+            $data = [
+                'user' => $user,
+                'users'=> $followings,
+                'path' => $path,
+            ];
+        }
         
         $data += $this->counts($user);
         
@@ -67,10 +80,23 @@ class UsersController extends Controller
         $user = User::find($id);
         $followers = $user->followers()->paginate(10);
         
-        $data = [
-            'user' => $user,
-            'users' => $followers,
-        ];
+        if (isset($user->images->image)) {
+            $imageUrl = $user->images->image;
+            $path = Storage::disk('s3')->url($imageUrl);
+            
+            $data = [
+                'user' => $user,
+                'users' => $followers,
+                'path' => $path,
+            ];
+        }else{
+            $path = "";
+            $data = [
+                'user' => $user,
+                'users' => $followers,
+                'path' => $path,
+            ];
+        }
         
         $data += $this->counts($user);
         
@@ -82,10 +108,23 @@ class UsersController extends Controller
         $user = User::find($id);
         $favorites = $user->posts_favorites()->paginate(10);
         
-        $data = [
-            'user' => $user,
-            'favorites' => $favorites,
-        ];
+        if (isset($user->images->image)) {
+            $imageUrl = $user->images->image;
+            $path = Storage::disk('s3')->url($imageUrl);
+            
+            $data = [
+                'user' => $user,
+                'favorites' => $favorites,
+                'path' => $path,
+            ];
+        }else{
+            $path = "";
+            $data = [
+                'user' => $user,
+                'favorites' => $favorites,
+                'path' => $path,
+            ];
+        }
         
         $data += $this->counts($user);
         
@@ -97,10 +136,23 @@ class UsersController extends Controller
         $user = User::find($id);
         $advices_favorites = $user->advices_favorites()->paginate(10);
         
-        $data = [
-            'user' => $user,
-            'advices_favorites' => $advices_favorites,
-        ];
+        if (isset($user->images->image)) {
+            $imageUrl = $user->images->image;
+            $path = Storage::disk('s3')->url($imageUrl);
+            
+            $data = [
+                'user' => $user,
+                'advices_favorites' => $advices_favorites,
+                'path' => $path,
+            ];
+        }else{
+            $path = "";
+            $data = [
+                'user' => $user,
+                'advices_favorites' => $advices_favorites,
+                'path' => $path,
+            ];
+        }
         
         $data += $this->counts($user);
         
