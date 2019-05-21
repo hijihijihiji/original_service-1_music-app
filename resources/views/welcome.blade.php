@@ -2,13 +2,16 @@
 
 @section('content')
     @if (Auth::check())
-        <div>
-            <div>
-                @if (count($posts) > 0)
+        @if (count($posts) > 0)
+            <div class="row"> 
+                <div class="col-12">
+                    <h2 class="text-center badge-secondary">ALL POSTS</h2>
+                </div>    
+                <div>
                     @include('posts.posts', ['posts' => $posts])
-                @endif
-            </div>
-        </div>
+                </div>
+            </div>   
+        @endif
     @else
         <div class="center jumbotron">
             <div class="text-center">
