@@ -19,7 +19,7 @@
                             <td>{!! nl2br(e($post->user->name)) !!}</td>
                             <td>{!! nl2br(e($post->artist)) !!}</td>
                             <td>{!! nl2br(e($post->tune)) !!}</td>
-                            <td>{!! nl2br(e($post->tune_url)) !!}</td>
+                            <td><a href="{!! $post->tune_url !!}">{!! nl2br(e($post->tune_url)) !!}</a></td>
                             <td>{!! nl2br(e($post->part)) !!}</td>
                             <td>{!! nl2br(e($post->content)) !!}</td>
                         </tr>
