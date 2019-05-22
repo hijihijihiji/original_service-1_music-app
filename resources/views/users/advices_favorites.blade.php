@@ -9,8 +9,8 @@
             @if (count($advices_favorites) > 0)
                 <ul class="list-unstyled">
                     @foreach ($advices_favorites as $advice)
-                        <li class="media mb-3">
-                            <div class="media-body">
+                        <li>
+                            <div>
                                 <div>
                                     {!! link_to_route('users.show', $advice->user->name, ['id' => $advice->user->id]) !!} <span class="text-muted">posted at {{ $advice->created_at }}</span>
                                 </div>
@@ -18,10 +18,10 @@
                                     <table class="table table-bordered">
                                         <tr>
                                             <th class="text-center">曲へのリンク</th>
-                                            <th class="text-center">コメント</th>
+                                            <td><a href="{!! $advice->advice_url !!}">{!! nl2br(e($advice->advice_url)) !!}</a></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="{!! $advice->advice_url !!}">{!! nl2br(e($advice->advice_url)) !!}</a></td>
+                                            <th class="text-center">コメント</th>
                                             <td>{!! nl2br(e($advice->content)) !!}</td>
                                         </tr>
                                     </table>

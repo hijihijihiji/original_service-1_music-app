@@ -2,8 +2,8 @@
 
 @section('content')
     @if (Auth::check())
-        <div class="row"> 
-            <div class="col-12">
+        <div> 
+            <div>
                 <h2 class="text-center badge-secondary">ALL POSTS</h2>
             </div>    
             <div>

@@ -1,7 +1,7 @@
 <ul class="list-unstyled">
     @foreach ($posts as $post)
-        <li class="media mb-3">
-            <div class="media-body">
+        <li>
+            <div>
                 <div>
                     {!! link_to_route('users.show', $post->user->name, ['id' => $post->user->id]) !!} <span class="text-muted">posted at {{ $post->created_at }}</span>
                 </div>
@@ -9,18 +9,26 @@
                     <table class="table table-bordered">
                         <tr>
                             <th class="text-center">ユーザー</th> 
-                            <th class="text-center">アーティスト</th>
-                            <th class="text-center">曲名</th>
-                            <th class="text-center">曲URL</th>
-                            <th class="text-center">パート</th>
-                            <th class="text-center">不明点</th>
+                            <td>{!! nl2br(e($post->user->name)) !!}</td>
                         </tr>
                         <tr>
-                            <td>{!! nl2br(e($post->user->name)) !!}</td>
+                            <th class="text-center">アーティスト</th>
                             <td>{!! nl2br(e($post->artist)) !!}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-center">曲名</th>
                             <td>{!! nl2br(e($post->tune)) !!}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-center">曲URL</th>
                             <td><a href="{!! $post->tune_url !!}">{!! nl2br(e($post->tune_url)) !!}</a></td>
+                        </tr>
+                        <tr>
+                            <th class="text-center">パート</th>
                             <td>{!! nl2br(e($post->part)) !!}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-center">不明点</th>
                             <td>{!! nl2br(e($post->content)) !!}</td>
                         </tr>
                     </table>
