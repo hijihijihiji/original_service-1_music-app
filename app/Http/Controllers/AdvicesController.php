@@ -24,15 +24,16 @@ class AdvicesController extends Controller
         return redirect()->route('posts.show', $id);
     }
     
-    public function destroy($id)
+    public function destroy($postId, $adviceID)
     {
-        $advice = \App\Advice::find($id);
-        
+        $advice = Advice::find($adviceID);
+
         if (\Auth::id() === $advice->user_id) {
             $advice->delete();
+            
         }
-        
         return back();
+        
     }
     
     public function create($id)
