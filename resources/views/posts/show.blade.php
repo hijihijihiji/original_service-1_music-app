@@ -22,7 +22,7 @@
                             </tr>
                             <tr>
                                 <th class="text-center">曲URL</th>
-                                <td>{!! nl2br(e($post->tune_url)) !!}</td>
+                                <td><a href="{!! $post->tune_url !!}">{!! nl2br(e($post->tune_url)) !!}</a></td>
                             </tr>
                             <tr>
                                 <th class="text-center">パート</th>
