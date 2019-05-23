@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>アドバイスを入力！</h1>
+    <h2>アドバイスを入力！</h2>
 
     <div class="row">
         <div class="col-6">
