@@ -83,11 +83,13 @@ class User extends Authenticatable
         return $this->followings()->where('follow_id', $userId)->exists();
     }
     
+    //ポストとのリレーション
     public function posts_favorites()
     {
         return $this->belongsToMany(Post::class, 'posts_favorites', 'user_id', 'post_id')->withTimestamps();
     }
     
+    //ポストへのいいね機能
     public function favorite($postId)
     {
         $exist = $this->now_favorite($postId);
@@ -100,6 +102,7 @@ class User extends Authenticatable
         }
     }
     
+    //ポストへのいいね解除機能
     public function unfavorite($postId)
     {
         $exist = $this->now_favorite($postId);
@@ -117,13 +120,13 @@ class User extends Authenticatable
         return $this->posts_favorites()->where('post_id', $postId)->exists();
     }
     
-    //リレーション
+    //アドバイスとのリレーション
     public function advices_favorites()
     {
         return $this->belongsToMany(Advice::class, 'advices_favorites', 'user_id', 'advice_id')->withTimestamps();
     }
     
-    //いいね機能
+    //アドバイスへのいいね機能
     public function advices_favorite($adviceId)
     {
         $exist = $this->now_favorite_advices($adviceId);
@@ -136,6 +139,7 @@ class User extends Authenticatable
         }
     }
     
+    //アドバイスへのいいね解除機能
     public function advices_unfavorite($adviceId)
     {
         $exist = $this->now_favorite_advices($adviceId);
