@@ -16,7 +16,7 @@
         <div class="center jumbotron">
             <div class="text-center">
                 <h1 class="text-white">バンドを、もっと楽しもう</h1>
-                {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'border border-dark btn-light btn btn-lg']) !!}
+                {!! link_to_route('signup.get', 'ユーザー登録', [], ['class' => 'border border-dark btn-light btn btn-lg']) !!}
             </div>
         </div>
         <div>

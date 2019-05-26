@@ -56,6 +56,6 @@
     @endforeach
 </ul>
 <div>
-    {!! link_to_route('posts.create', 'アドバイスをもらう!', [], ['class' => 'btn btn-lg border border-dark btn-light']) !!}
+    {!! link_to_route('posts.create', 'わからないことを投稿する!', [], ['class' => 'btn btn-lg border border-dark btn-light']) !!}
 </div>
 {{ $posts->render('pagination::bootstrap-4') }}
