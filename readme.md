@@ -1,58 +1,49 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+![top](https://user-images.githubusercontent.com/49480812/58378914-0760ee80-7fd7-11e9-84e4-54a78da10e01.jpg)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## About Music-app
 
-## About Laravel
+Music-app is a social networking service about sharing how to play music. Beginners can post their troubles about playing musical instruments, and high-level players can post advices to beginner's posts.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+## Requirement
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- PHP 7.0.0
+- Laravel 5.5.*
+- Laravelcollective/html 5.5.*
+- league/flysystem-aws-s3-v3 ~1.0
+- bootstrap 4.2.1
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+## Demo
 
-## Learning Laravel
+1. Sign up / Log in
+![sign up](https://user-images.githubusercontent.com/49480812/58379201-b3a4d400-7fdb-11e9-91f6-364cd1da4464.jpg)
+![log in](https://user-images.githubusercontent.com/49480812/58379202-b69fc480-7fdb-11e9-973f-5ccf2c6360e3.jpg)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+2. Upload user's image
+![upload user image](https://user-images.githubusercontent.com/49480812/58379220-ef3f9e00-7fdb-11e9-9748-48df63c633bc.jpg)
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+3. Follow users
+![follow](https://user-images.githubusercontent.com/49480812/58379218-e222af00-7fdb-11e9-8bc7-e3de42d507f0.jpg)
 
-## Laravel Sponsors
+4. (beginner)Post beginner's troubles
+![user page](https://user-images.githubusercontent.com/49480812/58379234-15653e00-7fdc-11e9-9c8d-12c8f6235a43.jpg)
+![post](https://user-images.githubusercontent.com/49480812/58379236-17c79800-7fdc-11e9-9cd7-7f88b5e914bd.jpg)
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+5. Favorite posts
+![favorite posts](https://user-images.githubusercontent.com/49480812/58379242-2e6def00-7fdc-11e9-880d-88fa15d70ce1.jpg)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
+6. (high-level players)Give advices to posts
+![advice1](https://user-images.githubusercontent.com/49480812/58379251-42195580-7fdc-11e9-96dd-6e469362dbcd.jpg)
+![advice2](https://user-images.githubusercontent.com/49480812/58379252-434a8280-7fdc-11e9-80e2-3a86f07b5da4.jpg)
+![advice3](https://user-images.githubusercontent.com/49480812/58379253-45acdc80-7fdc-11e9-8e6f-99eeeb31c03c.jpg)
 
-## Contributing
+7. Favorite advices
+![favorite advices](https://user-images.githubusercontent.com/49480812/58379260-5eb58d80-7fdc-11e9-9eca-f2b1f80ecc27.jpg)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Planning function to add
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- ranking of nuumber of followers
+- ranking of nuumber of favorites to advices
+- search users and tunes
+- link to other SNS
+- feedback posts to advices
+ 
